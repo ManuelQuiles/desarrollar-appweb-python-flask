@@ -1,0 +1,61 @@
+{% include 'header.html' %}
+
+
+{% with messages=get_flashed_messages() %}
+
+{% if messages %}
+
+<div class="alertalert-danger"role="alert">
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+
+<div class="card">
+    <div class="card-header">
+        Ingresar empleados
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Ingresar empleados</h5>
+        <p class="card-text">
+
+
+            <form method="post" action="/store" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input id="txtNombre" class="form-control" type="text" name="txtNombre">
+            </div>
+            <div class="form-group">
+                <label for="txtCorreo">Correo:</label>
+                <input id="txtCorreo" class="form-control" type="email" name="txtCorreo">
+            </div>
+            <div class="form-group">
+                <label for="txtFoto">Foto:</label>
+                <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" value="Agregar">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+            </div>
+        </form>
+       
+        <!-- <form method="post" action="/store" enctype="multipart/form-data">
+
+                Nombre: <input type="text" name="txtNombre" id="txtNombre"><br>
+                Correo: <input type="text" name="txtCorreo" id="txtCorreo"><br>
+                Foto: <input type="file" name="txtFoto" id="txtFoto"><br>
+                <input type="submit" value="Agregar">
+    
+            </form> -->
+
+        </p>
+    </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
